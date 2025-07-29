@@ -9,7 +9,7 @@ function Home() {
     <div>
       <div className="home">
         <div className="home-content">
-          <h1>Welcome to our E-learning plateform</h1>
+          <h1>Welcome to our VidyaSetu plateform</h1>
           <p>Learn,Grow,Excel</p>
           <button onClick={() => navigate("/courses")} className="common-btn">
             Get Started

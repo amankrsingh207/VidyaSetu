@@ -6,7 +6,7 @@ const Header = ({ isAuth }) => {
   return (
     <header>
       <div className="logo" onClick={() => navigate("/")}>
-        E-learning
+        VidyaSetu
       </div>
       <div className="link">
         <Link to="/">Home</Link>

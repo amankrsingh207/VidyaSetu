@@ -46,7 +46,10 @@ app.use("/api", userRoute);
 app.use("/api", courseRoute);
 app.use("/api", adminRoute);
 app.use("/api/chat", chatRoutes);
-
+app.use("/gemini", aiRoute);
+app.get("/", (req, res) => {
+  res.send("✅ VidyaSetu backend is running!");
+});
 io.on("connection", (socket) => {
   console.log("A user connected to chat");
 
@@ -61,5 +64,3 @@ server.listen(port, () => {
   console.log(`Server running on port ${port}`);
   connectDB();
 });
-
-app.use("/gemini", aiRoute);

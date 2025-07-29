@@ -5,7 +5,7 @@ const About = () => {
     <div className="about">
       <div className="about-content">
         <h2>About us</h2>
-        <p>This is your E-learnig plateform where you can study</p>
+        <p>This is your VidyaSetu plateform where you can study</p>
       </div>
     </div>
   );
