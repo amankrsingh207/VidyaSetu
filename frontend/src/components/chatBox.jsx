@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSocket } from "../context/SocketContext";
 import "./chatBox.css";
+import { server } from "../main";
 
 const ChatBox = ({ user }) => {
   const [text, setText] = useState("");
@@ -12,7 +13,7 @@ const ChatBox = ({ user }) => {
   const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/chat", {
+      .get(`${server}/api/chat`, {
         headers: { token },
       })
       .then((res) => setMessages(res.data))
@@ -34,7 +35,7 @@ const ChatBox = ({ user }) => {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/chat",
+        `${server}/api/chat`,
         { text },
         {
           headers: { token },

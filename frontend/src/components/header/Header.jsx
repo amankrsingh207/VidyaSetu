@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./header.css";
+
 const Header = ({ isAuth }) => {
   const navigate = useNavigate();
+  const [hideHeader, setHideHeader] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth <= 768) {
+        // only for mobile
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY) {
+          setHideHeader(true); // scroll down -> hide
+        } else {
+          setHideHeader(false); // scroll up -> show
+        }
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <header>
+    <header className={hideHeader ? "hide-header" : ""}>
       <div className="logo" onClick={() => navigate("/")}>
         VidyaSetu
       </div>

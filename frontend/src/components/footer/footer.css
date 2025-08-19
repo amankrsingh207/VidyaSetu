@@ -12,50 +12,55 @@ footer {
   max-width: 850px;
   margin: 0 auto;
   animation: fadeIn 1s ease-in;
+}
 
-  p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    color: #f1f1f1;
-  }
+.footer-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: #f1f1f1;
+}
 
-  a {
-    color: #ffee58;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease-in-out;
+.footer-content a {
+  color: #ffee58;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
 
-    &:hover {
-      color: #fff176;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-    }
-  }
+.footer-content a:hover {
+  color: #fff176;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 .social-links {
   margin-top: 20px;
-
-  a {
-    margin: 0 14px;
-    color: #fff;
-    font-size: 22px;
-    display: inline-block;
-    transition: transform 0.3s ease, color 0.3s ease;
-
-    &:hover {
-      transform: scale(1.25) rotate(-5deg);
-      color: #ffeb3b;
-      text-shadow: 0 0 10px rgba(255, 235, 59, 0.6);
-    }
-  }
 }
 
+.social-links a {
+  margin: 0 14px;
+  color: #fff;
+  font-size: 22px;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.25) rotate(-5deg);
+  color: #ffeb3b;
+  text-shadow: 0 0 10px rgba(255, 235, 59, 0.6);
+}
+
+/* 🌐 Mobile Responsive Design */
 @media (max-width: 600px) {
-  .footer-content {
-    p {
-      font-size: 14px;
-    }
+  footer {
+    padding: 30px 15px;
+  }
+
+  .footer-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
   }
 
   .social-links a {

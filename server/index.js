@@ -14,6 +14,13 @@ import axios from "axios";
 import aiController from "./controllers/aiController.js";
 dotenv.config();
 
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 export const instance = new Razorpay({
   key_id: process.env.Razorpay_Key,
   key_secret: process.env.Razorpay_Secret,
@@ -21,13 +28,13 @@ export const instance = new Razorpay({
 
 const app = express();
 const server = http.createServer(app); // ✅ Use HTTP server for socket.io
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Setup Socket.IO server
 const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:5173",
-      "https://vidya-setu-frontend-ruddy.vercel.app",
     ],
     methods: ["GET", "POST"],
     credentials: true,
@@ -47,7 +54,6 @@ app.use(
     origin: "*",
   })
 );
-app.use("/uploads", express.static("uploads"));
 
 // Routes
 app.use("/api", userRoute);

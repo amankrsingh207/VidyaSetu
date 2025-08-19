@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Loading from "../../components/loding/Loading";
 import { server } from "../../main";
-import "./Ai.css";
+import "./ai.css";
 
 const Ai = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -53,5 +53,6 @@ const Ai = () => {
     </div>
   );
 };
+
 
 export default Ai;
